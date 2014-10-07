@@ -6,7 +6,7 @@
 	<groupId>com.tomsquires</groupId>
 	<artifactId>running</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 
 	<name>Running</name>
 	<description>App for tracking my races, training, PBs, etc.</description>
