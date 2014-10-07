@@ -3,5 +3,6 @@
 set -x
 
 cd ${OPENSHIFT_REPO_DIR}
-
+pwd
+echo "Attempting to package artifact"
 mvn -Dmaven.repo.local=${OPENSHIFT_DATA_DIR}/maven/repository package
