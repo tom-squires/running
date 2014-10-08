@@ -1,0 +1,14 @@
+#! /bin/bash
+
+set -x
+
+jar=$(ls ${OPENSHIFT_REPO_DIR}/target/*.jar | head -n1)
+
+pwd
+echo "Attempting to start app."
+
+nohup java -server \
+     -Dserver.address=${OPENSHIFT_DIY_IP} \
+     -Dserver.port=8080 \
+     -Dlogging.path=${OPENSHIFT_LOG_DIR} \
+     -jar ${jar} &
