@@ -9,6 +9,6 @@ echo "Attempting to start app."
 
 nohup java -server \
      -Dserver.address=${OPENSHIFT_DIY_IP} \
-     -Dserver.port=${OPENSHIFT_DIY_PORT} \
+     -Dserver.port=8080 \
      -Dlogging.path=${OPENSHIFT_LOG_DIR} \
      -jar ${jar} &
