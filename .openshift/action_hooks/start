@@ -1,5 +1,14 @@
-#!/bin/bash
-# The logic to start up your application should be put in this
-# script. The application will work only if it binds to
-# $OPENSHIFT_DIY_IP:8080
-nohup $OPENSHIFT_REPO_DIR/diy/testrubyserver.rb $OPENSHIFT_DIY_IP $OPENSHIFT_REPO_DIR/diy |& /usr/bin/logshifter -tag diy &
+#! /bin/bash
+
+set -x
+
+jar=$(ls ${OPENSHIFT_REPO_DIR}/target/*.jar | head -n1)
+
+pwd
+echo "Attempting to start app."
+
+nohup java -server \
+     -Dserver.address=${OPENSHIFT_DIY_IP} \
+     -Dserver.port=8080 \
+     -Dlogging.path=${OPENSHIFT_LOG_DIR} \
+     -jar ${jar} &
