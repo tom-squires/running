@@ -2,4 +2,10 @@
 
 set -x
 
-kill `ps -ef | grep java | grep -v grep | awk '{ print $2; }'`
+echo "action_hooks attempting to stop"
+
+pid=`ps -ef | grep java | grep -v grep | awk '{ print $2; }'`
+if [[ $pid ]]
+then
+    kill $pid
+fi
